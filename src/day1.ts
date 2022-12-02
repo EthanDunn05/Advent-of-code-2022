@@ -24,7 +24,5 @@ console.log(`Part 1: ${topCal}`);
 
 elfCalories.sort((a, b) => b - a);
 const topThree = elfCalories.slice(0, 3);
-const sumTopThree = topThree.reduce((p, c, i) => p + c);
+const sumTopThree = topThree.reduce((p, c) => p + c);
 console.log(`Part 2: ${sumTopThree}`);
-
-debugger;
