@@ -1,8 +1,13 @@
 import * as fs from 'fs';
 
 /*
-This whole file feels really overcomplicated,
-  but I like it and it works so who cares.
+MY THOUGHTS:
+  This was a really fun challenge. It made me do
+some things a bit differently since I didn't want to
+just use a bunch of if statements. AoC is coming out
+swinging with this on day 2. This whole solution feels really
+overcomplicated, but I like it and it works so who cares.
+A lot of maps and enums...
 */
 
 enum Play {

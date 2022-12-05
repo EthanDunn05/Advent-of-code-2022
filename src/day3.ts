@@ -1,5 +1,12 @@
 import * as fs from 'fs';
 
+/*
+MY THOUGHTS:
+  Decently fun challenge. Not a super difficult one,
+but it's still just day 3. I don't have much more to say about
+this one. It's fine.
+*/
+
 const backpackData = fs.readFileSync('./inputs/day3.txt', 'utf8');
 const backpacks = backpackData.split('\n').filter((s) => s !== '');
 

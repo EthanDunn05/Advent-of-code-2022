@@ -1,7 +1,14 @@
-import * as fs from "fs";
-import { EOL } from "os";
+import * as fs from 'fs';
+import { EOL } from 'os';
 
-const calorieDataRaw = fs.readFileSync("./inputs/day1.txt", "utf8");
+/*
+MY THOUGHTS:
+  It's fine. Nothing special, but it works for the
+day 1 challenge. It's literally just adding numbers then
+doing simple analysis :/
+*/
+
+const calorieDataRaw = fs.readFileSync('./inputs/day1.txt', 'utf8');
 
 const calorieDataLines = calorieDataRaw.split(EOL);
 
@@ -9,7 +16,7 @@ const elfCalories = [0];
 let currentElf = 0;
 for (const line of calorieDataLines) {
   // Move to next elf when done with current elf
-  if (line === "") {
+  if (line === '') {
     currentElf++;
     elfCalories[currentElf] = 0;
     continue;
