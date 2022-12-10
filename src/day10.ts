@@ -20,8 +20,8 @@ const commands = readFileSync('./inputs/day10.txt', 'utf-8')
 /**
  * Processes the input commands
  * @param clockEffect
- * A function that is called every clock cycle. 
- * The xRegister and cycle number are passed in so that stuff can be 
+ * A function that is called every clock cycle.
+ * The xRegister and cycle number are passed in so that stuff can be
  * done with the memory.
  */
 function runProgram(clockEffect: (xRegister: number, cycle: number) => void) {
@@ -29,10 +29,10 @@ function runProgram(clockEffect: (xRegister: number, cycle: number) => void) {
   let cycle = 0;
 
   // Called every cycle
-  const clock = function() {
+  const clock = function () {
     cycle++;
     clockEffect(xRegister, cycle);
-  }
+  };
 
   // Go through the lines of the input
   for (let i = 0; i < commands.length; i++) {
@@ -43,7 +43,7 @@ function runProgram(clockEffect: (xRegister: number, cycle: number) => void) {
     const command = parts[0];
     clock();
 
-    if(command === 'noop') continue;
+    if (command === 'noop') continue;
 
     // Only other option is addx
     // Take another cycle to add to the X Register
@@ -63,8 +63,8 @@ let signalStrengthSumA = 0;
 
 //   Work on computing the answer to part A
 // on the 20th and every 40 cycles after that
-runProgram(function(xRegister, cycle) {
-  if((cycle + 20) % 40 === 0) {
+runProgram(function (xRegister, cycle) {
+  if ((cycle + 20) % 40 === 0) {
     signalStrengthSumA += cycle * xRegister;
   }
 });
@@ -81,30 +81,28 @@ The screen is 40px wide, so every 40 cycles is a new line.
 
 let screen = '';
 
-runProgram(function(spritePos, cycle) {
+runProgram(function (spritePos, cycle) {
   // The pixel to look at
   const pixel = (cycle % 40) - 1;
-  
+
   // For readability on output
   screen += ' ';
 
   // If the distance between the pixel and the sprite
   // is 1 or less. Effectively makes the sprite 3 wide.
-  if(Math.abs(spritePos - pixel) <= 1) {
+  if (Math.abs(spritePos - pixel) <= 1) {
     // Sprite is visible
     screen += '#';
-  }
-  else {
+  } else {
     // Sprite is not visible
     screen += ' ';
   }
 
   // Move to the next line on cycle 40
-  if(cycle % 40 === 0) {
+  if (cycle % 40 === 0) {
     screen += '\n';
   }
+});
 
-})
-
-console.log('Part B')
+console.log('Part B');
 console.log(screen);
